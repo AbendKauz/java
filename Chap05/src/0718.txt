@@ -1,0 +1,40 @@
+- 계단식 구조 (비정방형 배열)
+	-- int[][] scores = new int[2][];
+		scores[0] = new int[2];
+		scores[1] = new int[3]; 
+[모양]		
+[0][1]
+[0][1][2]
+
+- 참조타입배열
+	- 요소에 값(정수, 실수, 논리값)을 저장하지 않고, 객체의 번지를 가지고 있음
+	
+	-- String[] strArray = new String[3];
+	strArray[0] = "Java";
+	strArray[1] = "Java";
+	strArray[2] = new String("Java");
+	
+	System.out.println(strArray[0] == strArray[1]);			// true
+	System.out.println(strArray[0] == strArray[2]);			// false
+	System.out.println(strArray[0].equals(strArray[2]));	// true
+
+
+- 배열 복사
+	- 배열은 한 번 생성하면 크기를 변경할 수 없기 때문에 더 많은 저장 공간이 필요하다면?
+		-> 더 큰 배열을 새로 만들고 이전 배열로부터 항목 값들을 복사해야 함.
+	
+	-- 배열 간의 항목 값들을 복사하는 방법
+		1. for문을 이용해서 요소 하나 하나를 복사
+		2. System.arraycopy()를 이용한 복사
+		
+[흐름도]		
+System.arraycopy(object src, int srcPos, object dest, int destPos, int length);
+                        ---      ------         ----      -------      ------
+                       원본배열       ↓          새 배열         |        복사할 개수
+		                  원본배열에서 복사할 항목의 시작 index  　  ↓
+		                                            새 배열에서 붙여넣을 시작 index
+		
+		
+https://docs.oracle.com/en/java/javase/18/
+-> 찾고싶은 package, class, method 검색 가능
+

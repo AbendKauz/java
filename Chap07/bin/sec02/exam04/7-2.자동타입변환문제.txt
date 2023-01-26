@@ -1,0 +1,16 @@
+* Parent 클래스
+  => 메소드 접근제한 public / 리턴타입 X
+  - method1    -> 부모클래스의 method1 호출  출력
+  - method2    -> 부모클래스의 method2 호출  출력
+
+* Child 클래스
+  => 메소드 접근제한 public / 리턴타입 X
+  - method2    -> 부모클래스의 메소드 재정의 ->  자식클래스의 method2 호출  출력
+  - method3    -> 자식클래스의 method3 호출  출력
+
+* ChildExample 클래스
+  => 자식 객체 생성 
+       -> 부모 타입으로 자동타입 변환
+          -> method1, method2, method3 를 호출 
+             (호출 가능한 메소드 확인)
+

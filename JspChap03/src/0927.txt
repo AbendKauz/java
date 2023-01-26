@@ -1,0 +1,5 @@
+- 한글 깨질경우
+	: servlet -> doPost 
+	-> request.setCharacterEncoding("utf-8");
+	response.setContentType("text/html;charset=euc-kr");
+	작성

@@ -1,0 +1,15 @@
+package sec03;
+
+public class Car {
+	String company = "현대자동차";
+	String model; 
+	String color;
+	int maxSpeed;
+	
+	
+	Car(String color, int i ){
+		
+	};
+	
+}
+

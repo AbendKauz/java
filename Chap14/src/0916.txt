@@ -1,0 +1,23 @@
+	- 프린터 보조 스트림
+		: print(), println()메소드를 가진 보조 스트림
+	(PrintStream, PrintWriter)
+	
+	[기본형]
+	PrintStream ps = new PrintStream(바이트 기반 출력 스트림);
+	PrintWriter pw = new PrintWriter(문자 기반 출력 스트림);
+	
+		* println() 메소드는 출력할 데이터 끝에 개행문자 \n을 추가한 것
+			=> 줄바꿈이 일어남
+	
+	
+	- 객체 입출력 보조 스트림
+		: 연결하면 메모리에 생성된 객체를 파일 또는 네트워크로 출력
+	(ObjectOutputStream, ObjectInputStream)
+		* ObjectInputStream : 직렬화(객체 -> 바이트배열로)
+		* ObjectOutputStream : 역직렬화(바이트배열 -> 객체로)
+	[기본형]
+	ObjectInputStream ois = new ObjectInputStream(바이트 기반 입력 스트림);
+	ObjectOutputStream oos = new ObjectOutputStream(바이트 기반 출력 스트림);
+	
+		* 연결할 바이트 기반 입출력 스트림을 생성자 매개값으로 받음
+	

@@ -1,0 +1,32 @@
+	- Map 컬렉션
+		- 키와 값으로 구성된 Map.Entry 객체를 저장하는 구조를 가짐
+		* 키는 중복 저장될 수 없으나 값은 중복 저장될 수 있음
+			-> 기존 저장된 키와 동일한 키로 값을 저장하면 기존 값이 없어지고 새로운 값으로 대체됨
+	
+	기능		메소드								설명
+	객체추가	V put(K key, V value)				주어진 키로 값을 저장(새로운 키는 null을 리턴, 동일한 키가 있으면 값을 대체하고 이전값을 리턴)
+	객체검색	boolean containsKey(Object key)		주어진 키가 있는지 확인
+			boolean containsValue(Object value)	주어진 값이 있는지 확인
+			Set<Map.Entry<K, V>> entrySet()		키와 값의 쌍으로 구성된 모든 Map.Entry 객체를 Set에 담아서 리턴
+			V get(Object key)					주어진 키가 있는 값을 리턴
+			boolean isEmpty()					컬렉션이 비어있는지 확인
+			Set<K> keySet()						모든 키를 Set 객체에 담아서 리턴
+			int size()							저장된 키의 총 수를 리턴
+			Collection<V> values()				저장된 모든 값을 Collection에 담아서 리턴
+	객체삭제	void clear()						모든 Map.Entry(key와 value)을 삭제
+			V remove(Object key)				주어진 키와 일치하는 Map.Entry를 삭제하고 값을 리턴
+	
+	- 저장된 전체 객체를 대상으로 하나씩 얻고 싶은 경우
+		1. keySet() 메소드로 모든 키를 Set 컬렉션으로 얻은 뒤
+			반복자를 통해 키를 하나씩 얻고 get() 메소드를 통해 값을 얻음
+		2. entrySet() 메소드로 모든 Map.Entry를 Set 컬렉션으로 얻은 뒤
+			반복자를 통해 Map.Entry() 하나씩 얻고 getKey()와 getValue()메소드를 이용해 키와 값을 얻음
+	
+	- HashMap
+		- 대표적인 Map 컬렉션
+		* HashMap의 키로 사용할 객체는 hashCode() 메소드를 재정의하여 동등객체가 될 조건을 정해야 함
+			- hashCode() 리턴값이 같고 equals() 메소드가 true 리턴해야 함
+			-- HashMap 생성하려면 키 타입과 값 타입을 타입 파라미터로 주고 기본 생성자 호출
+	[기본형]
+	Map<K, V> map = new HashMap<K, V>();
+	

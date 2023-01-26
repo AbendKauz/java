@@ -1,0 +1,93 @@
+	- 문자열 비교(equals())
+		- == 연산자를 사용할 경우 원하지 않는 결과가 나올 수 있음
+	
+	- 바이트 배열로 변환(getBytes())
+		- 문자열을 바이트 배열로 변환하는 메소드
+		1. byte[] bytes = "문자열".getBytes();
+		2. byte[] bytes = "문자열".getBytes(Charset charset);
+		* getBytes() : 시스템의 기본 문자셋으로 인코딩된 바이트 배열 리턴
+		* getBytes(Charset charset) : 특정 문자셋으로 인코딩된 바이트 배열 리턴
+		
+		* 어떤 문자셋으로 인코딩하느냐에 따라 바이트배열의 크기가 달라짐
+			EUC-KR	: 알파벳 1바이트, 한글 2바이트로 변환
+			UTF-8	: 알파벳 1바이트, 한글 3바이트로 변환
+			
+		-- 바이트 배열을 다시 문자열로 디코딩할 때에는 어떤 문자셋으로
+		인코딩 되었는가에 따라 디코딩 방법이 다름
+		ex) 시스템 기본 문자셋과 다른 문자셋으로 인코딩 되었을 경우
+		String str = new String(byte[] bytes, String charsetName);
+	
+	- 문자열 찾기(indexOf())
+		- 매개값으로 주어진 문자열이 시작되는 인덱스 번호 리턴
+		-- 주어진 문자열이 포함되어 있지 않으면 -1 리턴
+	
+	- 문자열 길이(length())
+		- 문자열의 길이를 리턴
+		-- 띄어쓰기도 문자열 길이에 포함됨
+	
+	- 문자열 대체(replace())
+		- 첫번째 매개값인 문자열을 찾아 두번째 매개값인 문자열로 대체한
+		새로운 문자열 생성 및 리턴
+	
+	- 문자열 잘라내기(subString())
+		- 주어진 인덱스에서 문자열을 추출
+		* subString(int beginIndex)
+			- 주어진 인덱스부터 끝까지 문자열 추출
+		* subString(int beginIndex, int endIndex)
+			- 주어진 시작과 끝 인덱스 사이의 문자열 추출
+	
+	- 알파벳 대소문자 변경(toLowerCase(), toUpperCase())
+		* toLowerCase() : 주어진 문자를 전부 소문자로 변경
+		* toUpperCase() : 주어진 문자를 전부 대문자로 변경
+	
+	- 문자열 앞뒤 공백 잘라내기(trim())
+		- 문자열의 앞뒤 공백을 제거한 새로운 문자열 생성 및 리턴
+	
+	- 문자열 변환(valueOf())
+		- 기본 타입의 값을 문자열로 변환
+	
+	
+	- 포장 객체(Wrapper Class)
+		- 기본 타입의 값을 내부에 두고 저장
+		-- 포장하고 있는 기본 타입의 값은 외부에서 변경할 수 없음
+		ex) byte, char, short, int, long, float, double, boolean
+			기본타입의 값을 갖는 객체
+	
+		- 박싱(Boxing) : 기본 타입의 값을 포장 객체로 만드는 과정
+		- 언박싱(Unboxing) : 포장 객체에서 기본 타입의 값을 얻어내는 과정
+	
+	- 자동 박싱과 언박싱
+		- 포장 클래스 타입에 기본값이 대입될 경우 자동 박싱 발생
+		- 기본 타입에 포장객체가 대입되는 경우 및 연산에서 자동 언박싱 발생
+	
+	- 문자열을 기본 타입 값으로 변환
+		- 포장 클래스로 문자열을 기본 타입 값으로 변환
+	[기본형]
+	'parse+기본타입이름' 정적메소드
+	
+	- 포장 값 비교
+		- 포장 객체는 내부의 값을 비교하기 위해 == 및 != 연산자를 사용하지
+			않는 것이 좋음
+		-> 박싱된 값이 범위의 값이 아닌 경우 언박싱한 값을 얻어 비교해야 함
+	
+	
+	- Math 클래스
+		- 수학 계산에 사용할 수 있는 메소드를 제공하는 클래스
+	
+	- Date 클래스
+		- 날짜를 표현하는 클래스
+		-- Date는 객체 간 날짜 정보를 주고받을 떄 매개변수나 리턴타입으로 주로 사용
+		ex) Date now = new Date();
+		-> 원하는 날짜 형식의 문자열을 얻기 위해 java.text 패키지의 SimpleDateFormat클래스와 함께 사용
+		ex) SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일 hh시 mm분 ss초");
+		* format()메소드 호출
+		ex) String strNow = sdf.format(now);
+	
+	- Calendar 클래스
+		- 달력을 표현하는 클래스
+		-- 추상클래스이므로 new 연산자를 사용하여 인스턴스 생성 불가
+		-> getInstance() 메소드를 이용하여 현재 운영체제에 설정된
+		시간대 기준으로 한 Calendar 하위객체를 얻을 수 있음
+		ex) Calendar now = Calendar.getInstance();
+	
+	

@@ -1,0 +1,54 @@
+	- 강제타입변환(casting)
+		- 부모타입을 자식타입으로 변환
+			-- 조건 : 자식타입이 부모타입으로 자동타입변환한 후 다시 반대로 변환할 때 사용
+		[형식]
+		자식타입 변수 = (자식타입) 부모타입;
+		
+		ex)
+		Parent parent = new Child();	// 자동타입변환
+		Child child = (Child) parent;	// 강제타입변환
+		
+	- instanceOf 연산자
+		- 어떤 객체가 어느 클래스의 인스턴스인지 확인
+		- 메소드 내 강제타입변환이 필요한 경우
+			-> 타입을 확인하지 않고 강제타입변환 시도 시 ClassCastException이 발생할 수 있음
+			=> instanceOf 연산자를 통해 확인 후 안전하게 실행
+		[형식]
+		boolean result = 좌항(객체) instanceOf 우항(타입)
+		ex)
+		Parent parent = new Parent();
+		Child child = (child) parent;	// 강제타입변환을 할 수 없음
+		
+		public void method(Parent parent){
+			if(parent instanceof Child){
+				Child child = (child) parent;
+			}
+		}
+- 추상 클래스(abstract class)
+	- 실체 클래스(객체 생성용 클래스)들의 공통적인 특성(필드, 메소드)을 추출하여 선언한 것
+	-- 실체 클래스에 반드시 존재해야 할 필드와 메소드의 선언
+		(실체 클래스의 설계 규격은 객체 생성용이 아님)
+	-- 실체클래스에는 공통된 내용은 빠르게 물려받고, 다른 점만 선언하면 되므로 시간 절약
+	
+	- abstract 키워드
+		- 상속을 통해 자식 클래스만 만들 수 있게 만듬
+			=> 부모로서의 역할만 수행
+	[모양]
+	public abstract class 클래스{
+		// 필드
+		// 생성자
+		// 메소드
+	}
+	
+		- 추상 클래스도 일반 클래스와 마찬가지로 필드, 생성자, 메소드 선언 가능
+		* 직접 객체를 생성할 수 없지만 자식 객체가 생성될 때 객체화 됨
+			-> 자식 생성자에서 super(...)형태로 추상클래스의 생성자를 호출
+	
+	- 추상 메소드
+		- 메소드 선언은 통일하고 실행 내용은 실체 클래스마다 달라야 하는 경우
+		- abstract 키워드로 선언되고 중괄호가 없는 메소드
+		- 하위 클래스는 반드시 재정의해서 실행 내용을 채워야 함
+	[형식]
+	[public | protected] abstract 리턴타입 메소드이름(매개변수, ...);
+	
+	

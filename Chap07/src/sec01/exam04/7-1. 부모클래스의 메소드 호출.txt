@@ -1,0 +1,29 @@
+* Airplane - 부모 클래스
+ -> 메소드 ( public 접근제한 )
+    land() : 리턴타입 X /  매개변수 X / 착륙합니다. 를 출력
+    fly() : 리턴타입 X / 매개변수 X / 일반비행합니다. 를 출력
+    takeOff() : 리턴타입 X / 매개변수 X / 이륙합니다. 를 출력
+
+* SupersonicAirplane - 자식 클래스
+ -> 상수 ( public 접근제한 )
+     NORMAL : 값 1   // SUPERSONIC : 값 2
+ -> 필드 ( public 접근제한 )
+      flyMode : int 타입 / 초기값은 NORMAL 
+ -> 메소드 ( public 접근제한 )
+     fly() : 리턴타입 X /  매개변수 X /  
+            + flyMode가 SUPERSONIC 일 경우 초음속비행합니다. 를 출력 
+               아닐 경우에는 일반비행합니다를 출력 (부모클래스의 메소드 호출)
+
+* SupersonicAirplaneExample  - 실행 클래스
+  - 자식 객체 생성
+  - <console>
+    이륙합니다.
+    일반비행합니다.
+    초음속비행합니다.
+    일반비행합니다.
+    착륙합니다.
+
+
+
+
+

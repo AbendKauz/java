@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+#josaArea{
+	border: 1px solid black;
+	text-align: center;
+	width: 400px;
+	margin: auto;
+}
+h1{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<h1>당신의 선호도 조사</h1>
+	<section id="josaArea">
+		<form action="josaservlet" method="post">
+			1. 당신이 좋아하는 과일은?
+			<input type="text" name="fruit"><br>
+			2. 당신이 좋아하는 영화는?
+			<input type="text" name="movie"><br>
+			3. 당신이 좋아하는 운동은?
+			<input type="text" name="sports"><br><br>
+			<input type="submit" value="제출">
+		</form>
+	</section>
+</body>
+</html>

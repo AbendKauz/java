@@ -1,0 +1,60 @@
+변수(variable)
+ - 값을 저장할 수 있는 메모리의 특정 번지에 붙여진 이름
+ 
+변수 선언
+ - 변수를 사용하기 위해서는 변수를 선언해야 함
+ 
+ ex) int 		x;
+ 	-----	   ---
+   타입(type)  변수명;
+ 
+예약어
+ - 이미 자바 언어에서 의미를 가지고 사용되고 있는 단어
+ ex)	기본타입			: byte, short, char, int, long, float, double, boolean
+ 		접근 제한자		: private, protected, public
+ 		클래스와 관련된 것	: class, abstract, interface, extends, implements, enum
+ 		객체와 관련된 것	: new, instanceof, this, super, null
+ 		메소드와 관련된 것	: void, return
+ 		제어문과 관련된 것	: if, else, switch, case, default, for, do, while, break, continue
+ 		논리값			: true, false
+ 		예외처리와 관련된 것	: try, catch, finally, throw, throws
+ 		기타				: package, import, synchronized, final, static
+ 
+상수(Constant)
+ - 사전적 의미 : 변하지 않는 수
+ - 프로그래밍에서는 값(데이터)을 저장할 수 있는 저장공간
+ - 한 번 넣으면 변하지 않는 수를 넣는데 사용
+ -- 메모리 위치(공간)이며, 메모리 값을 변경할 수 없다.
+ 
+리터럴(Literal)
+ - 사전적 의미 : 데이터(값) 그 자체
+ - 변수에 넣는 변하지 않는 데이터를 의미
+ -- 메모리 위치(공간)안에 저장되는 값
+ 
+ ex) final int y = 3;
+              --- ---
+              상수 리터럴
+ 
+로컬 변수(Local Variable)	(= 지역변수)
+ - 메소드 블록 내에서 선언된 변수
+ - 로컬 변수는 해당 중괄호 블록 내에서만 사용 가능
+ 
+----------------------------------------------
+
+변수의 종류(Type)
+
+정수타입
+ - byte(1byte), char(2byte, 문자를 표현하기 위한 타입), short(2byte), int(4byte), long(8byte)
+ 
+char타입
+ - 문자
+ 
+string타입
+ - 문자열
+ 
+실수타입
+ - float, double
+  
+boolean타입
+ - true/false
+ 

@@ -1,0 +1,49 @@
+- 컬렉션 프레임워크(Collection Framework)
+	- 컬렉션(Collection) : 객체의 저장
+	- 프레임워크(Framework) : 사용방법을 정해놓은 라이브러리
+	
+	* 컬렉션 프레임워크의 주요 인터페이스
+		- List	: 순서를 유지하고 저장
+					중복저장 가능
+		- Set	: 순서를 유지하고 저장
+					중복저장 안됨
+		- Map	: 키와 값의 쌍으로 저장
+					키는 중복저장 안됨
+	=> 컬렉션 클래스를 사용하는 방법을 정의한 것
+	
+	- List 컬렉션
+		- 배열과 비슷하게 객체를 인덱스로 관리
+		* 배열과 차이점 
+			: 저장용량이 자동으로 증가
+				객체를 저장할 때 자동으로 인덱스가 부여됨
+				추가, 삭제, 검색을 위한 다양한 메소드들이 제공됨
+		- 객체 자체를 저장하는 것X, 객체의 번지를 참조
+		* null도 저장 가능, null 저장 시 해당 index는 객체를 참조 안함
+		
+	기능			메소드							설명
+	객체 추가		boolean add(E e)				주어진 객체를 맨 끝에 추가
+				void add(int index, E element)	주어진 인덱스에 객체 추가
+				E set(int index, E element)		주어진 인덱스에 저장된 객체를 주어진 객체로 변경
+	객체 검색		boolean contains(Object o)		주어진 객체가 저장되어있는지 조사
+				E get(int index)				주어진 인덱스에 저장된 객체 리턴
+				boolean isEmpty()				컬렉션이 비어있는지 조사
+				int size()						저장되어있는 전체 객체 수를 리턴
+	객체 삭제		void clear()					저장된 모든 객체 삭제
+				E remove(int index)				주어진 인덱스에 저장된 객체 삭제
+				boolean remove(Object o)		주어진 객체 삭제
+
+		* E 파라미터 : 저장되는 객체의 타입을 List 컬렉션 생성 시 결정하라는 뜻
+	
+		- List 컬렉션에 저장된 모든 객체를 대상으로 하나씩 가져와 처리하려는 경우
+			: 반복문 사용(forEach문 사용 권장)
+		[기본형]
+		for(String str : list){	// 저장된 총 객체 수 만큼 루핑
+			
+		}
+	
+		* ArrayList
+			- List 인터페이스의 대표적인 구현 클래스
+		[기본형]
+		List<E> list = new ArrayList<E>();
+		ex) List<String> list = new ArrayList<String>();
+		

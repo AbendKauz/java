@@ -1,0 +1,55 @@
+	- LinkedList
+		- ArrayList와 사용 방법은 같으나 내부 구조가 다름
+		- 인접한 참조를 링크하여 체인처럼 객체를 관리
+		- 특정 인덱스 객체를 제거하거나 삽입하면 앞뒤 링크만 변경되고
+		나머지 링크는 변경되지 않음
+		
+		- 저장할 객체 타입을 타입 파라미터에 표기하고 기본 생성자를 호출하여 생성
+	[기본형]
+	List<E> list = new LinkedList<E>();
+	List<E> list = new LinkedList<>();
+	// LinkedList의 E타입 파라미터를 생략하면
+	// 왼쪽 List에 지정된 타입을 따라감
+	
+	구분			순차적으로 추가/삭제		중간에 추가/삭제	검색
+	ArrayList	빠르다				느리다			빠르다
+	LinkedList	느리다				빠르다			느리다
+	
+	
+	- Set 컬렉션
+		- 저장 순서가 유지되지 않으며, 객체를 중복하여 저장할 수 없고
+		하나의 null만 저장할 수 있다
+		-- 수학의 집합과 비슷함
+	
+	기능		메소드						설명
+	객체 추가	boolean add(E e)			주어진 객체를 저장
+										(성공시 True, 중복객체 시 false)
+	객체 검색	boolean contains(Object o)	주어진 객체가 저장되어 있는지 조사
+			boolean isEmpty()			컬렉션이 비어 있는지 조사
+			Iterator<E> iterator()		저장된 객체를 한번씩 가져오는 반복자를 리턴
+			int size()					저장되어 있는 전체 객체 수를 리턴
+	객체 삭제	void clear()				저장된 모든 객체 삭제
+			boolean remove(Object o)	주어진 객체 삭제
+	
+		* iterator() 메소드를 호출하여 반복자를 얻고, 반복자로 검색기능 대체
+	ex)
+	Set<String> set = ...;
+	Iterator<String> iterator = set.iterator();
+	
+	* Iterator 인터페이스 메소드
+	리턴타입		메소드		설명
+	boolean		hasNext()	가져올 객체가 있으면 true, 없으면 false 리턴
+	E			next()		컬렉션에서 하나의 객체를 가져옴
+	void		remove()	Set컬렉션에서 객체를 제거
+	
+	
+	- HashSet
+		- Set 인터페이스의 구현 클래스
+		-> 기본 생성자를 호출하여 생성
+	[기본형]
+	Set<E> set = new HashSet<E>();
+	
+		* 객체를 순서없이 저장하되 동일한 객체는 중복저장 하지 않음
+		* 객체 저장 전 객체의 hashCode() 메소드를 호출하여 해시코드를 얻어내고
+			이미 저장된 객체의 해시코드와 비교
+	

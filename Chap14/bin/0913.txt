@@ -1,0 +1,75 @@
+- 스트림(Stream)
+	: 단일방향으로 연속적으로 흘러가는 것
+		-> 자바의 데이터는 스트림을 통해 입출력됨
+		-> 프로그램이 데이터의 출발지인지 도착지인지의 여부에 따라
+		 사용하는 스트림의 종류가 결정됨
+	ex) 출발지 : 출력 스트림
+		도착지 : 입력 스트림
+	- 스트림의 특징
+		* 스트림의 양 끝에는 입출력 장치와 자바 응용프로그램이 연결됨
+		* 단일방향으로 연속적으로 흘러감
+		* 스트림을 통해 흘러가는 기본단위 -> 바이트 또는 문자
+		* 선입선출(FIFO)
+		
+	- 스트림의 종류
+		* 바이트 기반 스트림
+			: 그림, 멀티미디어 등의 바이너리 데이터를 읽고 출력
+			-> 거의 모든 데이터
+		* 문자 기반 스트림
+			: 문자 데이터를 읽고 출력할 때 사용
+
+구분			바이트 기반 스트림					문자 기반 스트림
+			입력 스트림		출력 스트림		입력 스트림	출력 스트림
+최상위 클래스	InputStream		OutputStream	Reader		Writer
+하위 클래스	XXXInputStream	XXXOutputStream	XXXReader	XXXWriter
+
+
+	- OutputStream
+		: 바이트 기반 출력 스트림의 최상위 클래스(추상 클래스)
+		-> 모든 바이트 기반 출력 스트림 클래스는 OutputStream 클래스를 상속받음
+	(FileOutputStream, PrintStream, BufferedOutputStream, DataOutputStream)
+	
+	* OutputStream 클래스의 주요 메소드
+	리턴타입	메소드								설명
+	void	write(int b)						1byte 출력
+	(매개변수로 주어지는 int(4byte)에서 끝 1byte만 출력스트림으로 보냄)
+	void	write(byte[] b)						매개값으로 주어진 배열 b의 모든 바이트 출력
+	void	write(byte[] b, int off, int len)	매개값으로 주어진 배열 b[off]부터 len까지의 바이트 출력
+	void	flush()								출력 버퍼에 잔류하는 모든 바이트 출력
+	(write() 호출 후 flush() 호출해야 데이터가 완전하게 전송이 됨)
+	void	close()								출력 스트림 닫기
+	(OutputStream에서 사용했던 시스템 자원을 풀어줌(= 자원을 효율적으로 사용))
+	
+	* flush() 메소드
+		: write()를 하고나서 flush()메소드를 호출해야 데이터가 완전하게 전송이 됨
+		-> 출력 버퍼에 잔류하는 모든 바이트를 출력
+	(기본적인 출력 스트림은 버퍼에 데이터가 가득 찰 때 데이터를 출력시킴
+		-> 이 메소드를 사용하면 저장된 데이터의 크기에 관계없이 바로 모든 데이터를 강제적으로 출력)
+		
+	* close() 메소드
+		: OutputStream을 더 이상 사용하지 않을 경우 호출
+		-> OutputStream에서 사용했던 시스템 자원을 풀어줌(= 자원을 효율적으로 사용)
+	
+	
+	- inputStream
+		: 바이트 기반 입력 스트림의 최상위 클래스(추상 클래스)
+		-> 모든 바이트 기반 입력 스트림은 InputStream 클래스를 상속받아 만들어짐
+	(FileInputStream, BufferedInputStream, DataInputStream)
+	
+	* InputStream 클래스의 주요 메소드
+	리턴타입	메소드								설명
+	int		read()								1byte를 읽고 읽은 바이트를 리턴
+	int		read(byte[] b)						읽은 바이트를 매개값으로 주어진 배열에 저장하고 읽은 바이트 수를 리턴
+	int		read(byte[] b, int off, int len)	len개의 바이트를 읽고 매개값으로 주어진 배열에서 b[off]부터 len개까지 저장, 읽은 바이트 수를 리턴
+	void	close()								입력 스트림을 닫음
+	
+	* read() 메소드
+		: 입력 스트림으로부터 1byte를 읽고 int(4byte)타입으로 리턴
+		-> 리턴된 4byte중 끝 1byte에만 데이터가 들어있음
+		-- 더 이상 입력 스트림으로부터 바이트를 읽을 수 없게되면 -1 리턴
+			=> 이를 이용해서 읽을 수 있는 마지막 바이트까지 반복하여 1byte씩 읽을 수 있음
+	
+	* close() 메소드
+		: InputStream을 더 이상 사용하지 않을 경우 호출
+		-> InputStream에서 사용했던 시스템 자원을 풀어줌(= 자원을 효율적으로 사용)
+	

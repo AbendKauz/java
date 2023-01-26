@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;JspChap04/src/main/webContent&apos; to &apos;WebContent&apos;" description="Rename resource &apos;webContent&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/webContent" name="WebContent" stamp="1665476345711" updateReferences="true"/>
+</session>
